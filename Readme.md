@@ -1,23 +1,50 @@
 ## Introduction
-This is a project for the paper "Efficient Two-server ORAM for Resource-Constrained Clients". This project also implements the state-of-the-art [LO13](https://eprint.iacr.org/2011/384.pdf), [GKW18](https://eprint.iacr.org/2018/005.pdf), and [KM19](https://arxiv.org/pdf/1802.05145.pdf).
+This is a project for the paper "Efficient Two-server ORAM for Resource-Constrained Clients". This project also implements the state-of-the-art [LO13](https://eprint.iacr.org/2011/384.pdf), [AFN17](https://eprint.iacr.org/2016/849.pdf), and [KM19](https://arxiv.org/pdf/1802.05145.pdf). Note that we also test our results with Duoram(https://eprint.iacr.org/2022/1747.pdf), please see [https://git-crysp.uwaterloo.ca/avadapal/duoram] for details. 
+
 ## Prerequisites
-1. Ubuntu 20.04.6 operating system.
-2. Python version 3.9.13 installed on your local and server machines.
-3. Install the necessary libraries:
+1. A system with an x86 processor that supports AVX/AVX2 instructions. 
+2. Ubuntu 20.04 operating system.
+3. Gcc version >= 9.4.
 
-    `pip install numpy==1.21.5`
+## Quick Start
+  - Clone this project
 
-    `pip install pycryptodome==3.19.0`
+        git clone https://github.com/GfKbYu/Cforam.git
+        cd Cforam
     
-    `pip install pycryptodomex==3.19.0`
-## Files
-* ``*ORAMClient*.py``: The ORAM core code deployed on the client, which allows the client to adjust the database size, block size, and number of accesses.
-* ``*ORAMServer*.py/ORAMServer2*.py``: The ORAM core code deployed on two servers.
-* ``client.py``: The TCP protocol deployed on the client, which allows the client to modify the addresses and ports of the two servers they need to connect to.
-* ``server.py``: The TCP protocol deployed on the two servers.
-* ``*utils.py``: The implementation of some auxiliary functions kept on both the servers and the client, including DPF, read-only PIR, write-only PIR, PRF, etc.
-* ``SimOBuildClient.py/SimOBuildServer.py``: Since KM19 requires the oblivious sort to implement its rebuild operations, which consumes massive time, users can first pre-test the cost of rebuild by deploying these two files on the client and a server so that accelerating the experiment.
-## Deployments
-Users need to deploy two servers and copy the corresponding two files ``*ORAMServer.py`` and ``*ORAMServer2.py`` on each server. The file ``server.py`` and other ``*utils`` files are also needed to be copied in two servers. The files ``*ORAMClient.py``、``client.py``、and ``*utils.py`` need to be preserved locally.
-## Test
-Before starting the client-side code, ensure that the server-side is already running. For experimental comparisons, users can modify the database size and block size in ``*ORAMClient.py`` to test the results under different databases and block sizes.
+  - Build and test Ours
+  
+        ./build_and_run.sh Ours test_one 10 1024 32 32 0
+        
+  - The above command means that testing the Cforam with <log_database_size>=10, <access_times>=1024, <element_size>=32, <tag_size>=32, <0Or2>=0. The output is stored in the file ``Ours/Result/ours_results.csv`` as follows:
+  
+        log_database_size,element_size,setup_time (s),setup_bandwidth (B),amortized_access_time (s),amortized_access_bandwidth (B)
+        10,32,0.0335716,196608,0.016307,4645.89
+
+## Running the experiments
+
+### Figure 5
+  - Build and run
+        cd TW-PIR/build
+        cmake ..
+        make
+        ./test_pir_read
+        ./test_pir_write
+        
+  - The test results is showed in the folder ``TW-PIR/Result/``
+
+### Figures 6,7
+  - Before running the program, you can use linux ``tc`` to control and simulate different network situations
+        sudo tc qdisc add dev lo root netem delay 50us rate 80gbit
+
+  - Build and test for different schemes, database sizes, and block sizes
+        ./build_and_run.sh <scheme> test_mul <log_database_sizes length> <log_database_sizes values> <element_sizes length> <element_sizes values> <0Or2>
+        
+  - For example, testing our Cforam for different database sizes under ``element_size=32``
+        ./build_and_run.sh Ours test_mul 4 6 8 10 12 1 32 0
+
+        
+### Figure 8
+  - Running Cforam and Cforam for 8-byte blocks
+        ./build_and_run.sh Ours test_mul 6 15 16 17 18 19 20 1 32 2
+        ./build_and_run.sh OursOpt test_mul 6 15 16 17 18 19 20 1 32 2
