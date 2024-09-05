@@ -47,7 +47,7 @@ This is a project for the paper "Bandwidth-Efficient Two-Server ORAMs with $O(1)
 
         
 ### Figure 8
-  - Running Cforam and Cforam+ for diffrent database scales under 8-byte blocks
+  - Running Cforam and Cforam+ for diffrent database sizes under 8-byte blocks
 
         ./build_and_run.sh Ours test_mul 6 15 16 17 18 19 20 1 32 2
         ./build_and_run.sh OursOpt test_mul 6 15 16 17 18 19 20 1 32 2
