@@ -37,8 +37,6 @@ This is a project for the paper "Efficient Two-server ORAM for Resource-Constrai
 ### Figures 6,7
   - Before running the program, you can use linux ``tc`` to control and simulate different network situations
 
-        sudo tc qdisc add dev lo root netem delay 50us rate 80gbit
-
   - Build and test for different schemes, database sizes, and block sizes
 
         ./build_and_run.sh <scheme> test_mul <log_database_sizes length> <log_database_sizes values> <element_sizes length> <element_sizes values> <0Or2>
