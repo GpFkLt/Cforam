@@ -1,5 +1,5 @@
 ## Introduction
-This is a project for the paper "Bandwidth-Efficient Two-Server ORAMs with $O(1)$ Client Storage". This project also implements the state-of-the-art [LO13](https://eprint.iacr.org/2011/384.pdf), [AFN17](https://eprint.iacr.org/2016/849.pdf), and [KM19](https://arxiv.org/pdf/1802.05145.pdf). Note that we also compare the results with Duoram(https://eprint.iacr.org/2022/1747.pdf), please see https://git-crysp.uwaterloo.ca/avadapal/duoram for the detailed implentations. 
+This is a project for the paper "Bandwidth-Efficient Two-Server ORAMs with $O(1)$ Client Storage". This project also implements the state-of-the-art [LO13](https://eprint.iacr.org/2011/384.pdf), [AFN17](https://eprint.iacr.org/2016/849.pdf), and [KM19](https://arxiv.org/pdf/1802.05145.pdf). Note that we also compare the results with Duoram(https://eprint.iacr.org/2022/1747.pdf), please see https://git-crysp.uwaterloo.ca/avadapal/duoram for the detailed implentations of Duoram. 
 
 ## Prerequisites
 1. A system with an x86 processor that supports AVX/AVX2 instructions. 
