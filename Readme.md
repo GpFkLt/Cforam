@@ -1,5 +1,5 @@
 ## Introduction
-This is a project for the paper "Efficient Two-server ORAM for Resource-Constrained Clients". This project also implements the state-of-the-art [LO13](https://eprint.iacr.org/2011/384.pdf), [AFN17](https://eprint.iacr.org/2016/849.pdf), and [KM19](https://arxiv.org/pdf/1802.05145.pdf). Note that we also compare the results with Duoram(https://eprint.iacr.org/2022/1747.pdf), please see https://git-crysp.uwaterloo.ca/avadapal/duoram for the detailed implentations. 
+This is a project for the paper "Bandwidth-Efficient Two-Server ORAMs with $O(1)$ Client Storage". This project also implements the state-of-the-art [LO13](https://eprint.iacr.org/2011/384.pdf), [AFN17](https://eprint.iacr.org/2016/849.pdf), and [KM19](https://arxiv.org/pdf/1802.05145.pdf). Note that we also compare the results with Duoram(https://eprint.iacr.org/2022/1747.pdf), please see https://git-crysp.uwaterloo.ca/avadapal/duoram for the detailed implentations. 
 
 ## Prerequisites
 1. A system with an x86 processor that supports AVX/AVX2 instructions. 
@@ -47,7 +47,7 @@ This is a project for the paper "Efficient Two-server ORAM for Resource-Constrai
 
         
 ### Figure 8
-  - Running Cforam and Cforam for 8-byte blocks
+  - Running Cforam and Cforam+ for diffrent database scales under 8-byte blocks
 
         ./build_and_run.sh Ours test_mul 6 15 16 17 18 19 20 1 32 2
         ./build_and_run.sh OursOpt test_mul 6 15 16 17 18 19 20 1 32 2
