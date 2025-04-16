@@ -21,7 +21,7 @@ This is a project for the paper "Bandwidth-Efficient Two-Server ORAMs with $O(1)
         log_database_size,element_size,setup_time (s),setup_bandwidth (B),amortized_access_time (s),amortized_access_bandwidth (B)
         10,32,0.0335716,196608,0.016307,4645.89
 
-## Running the experiments
+## Running the Experiments
 
 ### PIR_Cost
   - Build and run
@@ -34,7 +34,7 @@ This is a project for the paper "Bandwidth-Efficient Two-Server ORAMs with $O(1)
         
   - The test results is showed in the folder ``TW-PIR/Result/``
 
-### ORAM_Cost under various configurations
+### ORAM_Cost under Different Database Sizes
   - Before running the program, you can use linux ``tc`` to control and simulate different network situations
 
   - Build and test for different schemes, database sizes, and block sizes
@@ -46,7 +46,7 @@ This is a project for the paper "Bandwidth-Efficient Two-Server ORAMs with $O(1)
         ./build_and_run.sh Ours test_mul 4 6 8 10 12 1 32 0
 
         
-### Figure 8
+### ORAM_Cost under Different Block Sizes
   - Running Cforam and Cforam+ for diffrent database sizes under 8-byte blocks
 
         ./build_and_run.sh Ours test_mul 6 15 16 17 18 19 20 1 32 2
