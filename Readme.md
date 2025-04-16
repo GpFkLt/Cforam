@@ -12,7 +12,7 @@ This is a project for the paper "Bandwidth-Efficient Two-Server ORAMs with $O(1)
         git clone https://github.com/GfKbYu/Cforam.git
         cd Cforam
     
-  - Build and test our Cforam
+  - Build and test
   
         ./build_and_run.sh Ours test_one 10 1024 32 32 0
         
@@ -23,7 +23,7 @@ This is a project for the paper "Bandwidth-Efficient Two-Server ORAMs with $O(1)
 
 ## Running the experiments
 
-### Figure 5
+### PIR_Cost
   - Build and run
 
         cd TW-PIR/build
@@ -34,7 +34,7 @@ This is a project for the paper "Bandwidth-Efficient Two-Server ORAMs with $O(1)
         
   - The test results is showed in the folder ``TW-PIR/Result/``
 
-### Figures 6,7
+### ORAM_Cost under various configurations
   - Before running the program, you can use linux ``tc`` to control and simulate different network situations
 
   - Build and test for different schemes, database sizes, and block sizes

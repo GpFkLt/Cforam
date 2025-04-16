@@ -60,6 +60,7 @@ tag_type Client::get_tag(addr_type vir_addr) {
     return tag;
 }
 
+// Insert Function for Cuckoo Hashing
 void Client::insert_data(element_type& ele, size_t level) {
     size_t ell_epoch = get_epoch(ell);
     size_t level_epoch = get_epoch(level);

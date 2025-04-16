@@ -8,6 +8,7 @@
 
 typedef block key_type;
 
+// Hash Function
 size_t hash_function_tag(size_t table_length, key_type& hash_key, tag_type& tag);
 size_t hash_function_addr(size_t table_length, key_type& hash_key, size_t addr);
 size_t get_random_position(size_t table_length);

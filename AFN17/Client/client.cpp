@@ -161,6 +161,7 @@ std::pair<size_t, size_t> Client::get_evict_pos(size_t vir_addr) {
     return res_old_new_pos;
 }
 
+// Evict
 size_t Client::evict_pos(size_t vir_addr) {
     assert(lg_N > 2);
     std::vector<size_t> tmp_index_list(lg_N - 1); // [1, 4] -> [1, 8] -> ...

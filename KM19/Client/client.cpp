@@ -78,7 +78,7 @@ tag_type Client::get_tag(size_t level, size_t bucketID, size_t epoch, addr_type 
     return tag;
 }
 
-/**
+/** For Oblivious Sort
  * dire = 0, decending order; dire = 1, ascending order
  * flag = 0, (pos, addr) sort; flag = 1, (pos, addr, excess) sort*/ 
 void Client::compAndSwap(size_t array_len, size_t ii, size_t jj, size_t flag, size_t dire) { // A: (addr, pos)

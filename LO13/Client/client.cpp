@@ -372,6 +372,7 @@ void Client::Rebuild(size_t level) {
     len_written_stash = 0;
 }
 
+// Rebuild Final Level
 void Client::RebuildMaxLevel() {
     element_type ele(num_cell_per_element);
     element_type tag(num_cell_per_tag);

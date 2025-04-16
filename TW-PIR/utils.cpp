@@ -36,6 +36,8 @@ size_t get_random_index(size_t length) {
     return dis(gen);
 
 }
+
+// Random Uint8
 uint8_t* get_random_uint8t(size_t uint_size) {
     uint8_t* random_array = new uint8_t[uint_size];
     fill_random_element_bytes(random_array, uint_size);
@@ -48,6 +50,7 @@ element_type get_zero_element(size_t element_size) {
     return element;
 }
 
+// Random elements
 element_type get_random_element(size_t vir_addr, size_t element_size) {
     element_type element(element_size / sizeof(cell_type));
     std::memcpy(&element[0], &vir_addr, sizeof(addr_type));
@@ -55,6 +58,7 @@ element_type get_random_element(size_t vir_addr, size_t element_size) {
     return element;
 }
 
+// Convertion
 uint8_t* convert_addrVal_to_bytes(std::pair<size_t, uint8_t*> addr_value, size_t element_size) {
     uint8_t* bytes = new uint8_t[element_size];
     std::memcpy(bytes, &addr_value.first, sizeof(size_t));
@@ -211,6 +215,7 @@ bool is_index_bit_1(size_t full_flag, size_t i) {
     return (full_flag & (1 << i)) != 0;
 }
 
+// PIR Read & Write
 element_type pir_read(element_array_type& element_table, std::vector<uint8_t>& indexing, size_t element_num, size_t element_size) {
     size_t num_cell_per_element = element_size / sizeof(cell_type);
     element_type result(num_cell_per_element, _mm256_set_epi64x(0, 0, 0, 0));
