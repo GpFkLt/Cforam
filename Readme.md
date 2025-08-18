@@ -5,6 +5,7 @@ This is a project for the paper "Bandwidth-Efficient Two-Server ORAMs with $O(1)
 1. A system with an x86 processor that supports AVX/AVX2 instructions. 
 2. Ubuntu 20.04 operating system.
 3. Gcc version $\geq$ 9.4.
+4. Boost version $\geq$ 1.86.0.
 
 ## Quick Start
   - Clone this project
